@@ -2,61 +2,53 @@ package com.example.Cafateria.Database;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
 
 
 @Entity
-@Table
-public class User {
+@Table(name = "user")
+@Inheritance (strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class User {
+
     @Id
-    @SequenceGenerator(
-            name = "",
-            sequenceName = "",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = ""
-    )
-    private Long id;
+    @Column(name = "userId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long userId;
+    @Column(name = "firstName")
     private String firstName;
+    @Column(name = "lastName")
     private String lastName;
-    private LocalDate dob;
+    @Column(name = "birthDate")
+    private Date birthDate;
+    @Column(name = "email", unique = true)
     private String email;
+    @Column(name = "userName",unique = true)
+    private String userName;
+    @Column(name = "password")
     private String password;
-    private String phone;
-    private String address;
 
-    public User() {
-    }
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Card> cards;
 
-    public User(Long id, String firstName, String lastName, LocalDate dob, String email, String password, String phone, String address) {
-        this.id = id;
+    // Constructor with all fields
+    public User(String firstName, String lastName, Date birthDate, String email, String userName, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.dob = dob;
+        this.birthDate = birthDate;
         this.email = email;
+        this.userName = userName;
         this.password = password;
-        this.phone = phone;
-        this.address = address;
     }
 
-    public User(String firstName, String lastName, LocalDate dob, String email, String password, String phone, String address) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.dob = dob;
-        this.email = email;
-        this.password = password;
-        this.phone = phone;
-        this.address = address;
+    // Getters and Setters
+
+    public Long getUserId() {
+        return userId;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getFirstName() {
@@ -75,12 +67,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public LocalDate getDob() {
-        return dob;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
     public String getEmail() {
@@ -91,6 +83,14 @@ public class User {
         this.email = email;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -99,33 +99,18 @@ public class User {
         this.password = password;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
+                "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", dob=" + dob +
+                ", birthDate=" + birthDate +
                 ", email='" + email + '\'' +
+                ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
                 '}';
     }
+
+
 }
