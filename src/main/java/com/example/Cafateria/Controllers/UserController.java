@@ -2,6 +2,7 @@ package com.example.Cafateria.Controllers;
 
 import com.example.Cafateria.Database.User;
 import com.example.Cafateria.Services.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,15 +10,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/users")
+@AllArgsConstructor
 public class UserController {
 
     @Autowired
     private final UserService userService;
-
-
-    public UserController(UserService userService){
-        this.userService=userService;
-    }
 
 
 

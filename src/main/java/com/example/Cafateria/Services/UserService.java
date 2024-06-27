@@ -2,21 +2,20 @@ package com.example.Cafateria.Services;
 
 import com.example.Cafateria.Database.User;
 import com.example.Cafateria.Repos.UserRepo;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Data
+@AllArgsConstructor
 public class UserService {
 
 
     private final UserRepo userRepository;
-
-    public UserService(UserRepo userRepo){
-        this.userRepository=userRepo;
-    }
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
