@@ -1,27 +1,57 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <title>Users List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Signup</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .signup-form {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
-<h1>Users List</h1>
-<table border="1">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Date of Birth</th>
-        <th>Email</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="user : ${users}">
-        <td th:text="${user.id}">ID</td>
-        <td th:text="${user.name}">Name</td>
-        <td th:text="${user.dob}">Date of Birth</td>
-        <td th:text="${user.email}">Email</td>
-    </tr>
-    </tbody>
-</table>
+<div class="container">
+    <div class="signup-form">
+        <h2 class="text-center">Staff Signup</h2>
+        <form action="/api/staff/signup" method="post">
+            <div class="form-group">
+                <label for="staffId">Staff ID</label>
+                <input type="text" class="form-control" id="staffId" name="staffId" required>
+            </div>
+            <div class="form-group">
+                <label for="hospitalStaffId">Hospital Staff ID</label>
+                <input type="text" class="form-control" id="hospitalStaffId" name="hospitalStaffId" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+        </form>
+    </div>
+</div>
+
 </body>
 </html>

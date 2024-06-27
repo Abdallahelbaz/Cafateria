@@ -1,6 +1,7 @@
 package com.example.Cafateria.Database;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Entity
 @Table(name = "user")
 @Inheritance (strategy = InheritanceType.TABLE_PER_CLASS)
+@Data
 public abstract class User {
 
     @Id
