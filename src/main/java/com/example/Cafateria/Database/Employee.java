@@ -1,92 +1,33 @@
 package com.example.Cafateria.Database;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 
 @Entity
-@PrimaryKeyJoinColumn(name = "userId")
+@Table(name = "Employee")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Employee extends User {
 
-    @Column(unique = true)
+
+    @Column(name = "employee_id")
     private Long employeeId;
-
+    @Column(name = "users_id")
+    private Long userId;
+    @Column(name = "active")
     private short active;
+    @Column(name = "shift")
     private String shift;
+    @Column(name = "salary")
     private float salary;
+    @Column(name = "address")
     private String address;
+    @Column(name = "job_description")
     private String jobDescription;
-
-
-    public Employee(String firstName, String lastName, Date birthDate, String email, String userName, String password, short active, String shift, float salary, String address, String jobDescription) {
-        super(firstName, lastName, birthDate, email, userName, password);
-        this.active = active;
-        this.shift = shift;
-        this.salary = salary;
-        this.address = address;
-        this.jobDescription = jobDescription;
-    }
-
-    public Long getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(Long employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public short getActive() {
-        return active;
-    }
-
-    public void setActive(short active) {
-        this.active = active;
-    }
-
-    public String getShift() {
-        return shift;
-    }
-
-    public void setShift(String shift) {
-        this.shift = shift;
-    }
-
-    public float getSalary() {
-        return salary;
-    }
-
-    public void setSalary(float salary) {
-        this.salary = salary;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getJobDescription() {
-        return jobDescription;
-    }
-
-    public void setJobDescription(String jobDescription) {
-        this.jobDescription = jobDescription;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "employeeId=" + employeeId +
-                ", active=" + active +
-                ", shift='" + shift + '\'' +
-                ", salary=" + salary +
-                ", address='" + address + '\'' +
-                ", jobDescription='" + jobDescription + '\'' +
-                '}';
-    }
 }

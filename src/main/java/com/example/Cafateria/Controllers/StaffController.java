@@ -16,18 +16,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/staff")
+@RequestMapping("api/users/staff")
 @AllArgsConstructor
 public class StaffController {
 
   @Autowired
   private final StaffService staffService;
 
-
-
-
-  @GetMapping
-  public List<Staff> getAllUsers() {
+  @GetMapping("/getAllStaff")
+  public List<Staff> getAllStaff() {
     return staffService.getAllStaff();
   }
 

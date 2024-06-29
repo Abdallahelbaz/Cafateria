@@ -9,13 +9,13 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/employees")
+@RequestMapping("/api/users/employees")
 public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
 
-    @GetMapping
+    @GetMapping("/getAllEmployees")
     public List<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();
     }

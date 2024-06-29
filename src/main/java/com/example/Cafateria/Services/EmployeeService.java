@@ -2,6 +2,8 @@ package com.example.Cafateria.Services;
 
 import com.example.Cafateria.Database.Employee;
 import com.example.Cafateria.Repos.EmployeeRepo;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Data
+@AllArgsConstructor
 public class EmployeeService {
 
     @Autowired

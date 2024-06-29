@@ -1,25 +1,26 @@
 package com.example.Cafateria.Database;
-
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
+
 @Entity
-@PrimaryKeyJoinColumn(name = "userId")
+@Table(name = "Staff")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Staff extends User {
 
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
+    @Column(name = "staff_id")
     private Long staffId;
-
-    @Column(unique = true)
+    @Column(name = "users_id")
+    private Long userId;
+    @Column(name = "hospital_staff_id", unique = true)
     private Long hospitalStaffId;
-
-    public Staff(String firstName, String lastName, Date birthDate, String email, String userName, String password, Long hospitalStaffId) {
-        super(firstName, lastName, birthDate, email, userName, password);
-        this.staffId = staffId;
-        this.hospitalStaffId = hospitalStaffId;
-    }
 
 }
 
