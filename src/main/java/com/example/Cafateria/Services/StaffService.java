@@ -43,7 +43,7 @@ public class StaffService {
     throw new RuntimeException();
   }
 
-  public void deleteUser(Long id) {
+  public void deletStaff(Long id) {
     staffRepository.deleteById(id);
   }
 }

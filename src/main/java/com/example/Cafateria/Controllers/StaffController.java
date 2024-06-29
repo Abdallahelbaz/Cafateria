@@ -33,7 +33,7 @@ public class StaffController {
     return staffService.getStaffById(id);
   }
 
-  @PostMapping
+  @PostMapping("/create")
   public User createStaff(@RequestBody Staff staff) {
     return staffService.createStaff(staff);
   }
@@ -45,8 +45,8 @@ public class StaffController {
   }
 
 
-  @DeleteMapping("/staff/{id}")
+  @DeleteMapping("/{id}")
   public void deleteUser(@PathVariable Long id) {
-    staffService.deleteUser(id);
+    staffService.deletStaff(id);
   }
 }
