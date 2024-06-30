@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register - Cafeteria</title>
+<link rel="stylesheet" href="../static/css/style.css"  th:href="@{/css/style.css}">
+</head>
+<body>
+
+<main>
+    <div class="container">
+        <img src="../static/photots/logo.png" th:src="@{/photots/logo.png}" alt="Logo" class="logo">
+
+        <form action="#" th:action="@{/createStaff}" method="post" th:object="${staff}">
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" th:field="*{firstName}" required>
+
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" th:field="*{lastName}" required>
+
+            <label for="dob">Date Of Birth:</label>
+            <input type="date" id="dob" th:field="*{birthDate}" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" th:field="*{email}" required>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" th:field="*{userName}" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" th:field="*{password}" required>
+
+            <label for="staff-id">Staff ID:</label>
+            <input type="text" id="staff-id" th:field="*{staffId}" pattern="[0-9]*" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+    </div>
+</main>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Home</h3>
+            <p>+4915129615077</p>
+            <p><a href="mailto:m.chanel07@yahoo.de">m.chanel07@yahoo.de</a></p>
+            <p>Bornstr.147, 44145 Dortmund, Deutschland</p>
+            <p><a href="map.html">Karte anzeigen</a></p>
+        </div>
+        <div class="footer-section">
+            <p>Senden Sie uns eine Nachricht.</p>
+            <p>Entwickelt von der DISH Digital Solutions GmbH. Alle Rechte vorbehalten.</p>
+            <p><a href="impressum.html">Impressum</a> | <a href="cookies.html">Cookie Einstellungen ändern</a> | <a href="privacy.html">Datenschutzerklärung</a></p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
