@@ -28,9 +28,9 @@ public abstract class User {
     private String lastName;
     @Column(name = "birth_date")
     private Date birthDate;
-    @Column(name = "email", unique = true)
+    @Column(name = "email")
     private String email;
-    @Column(name = "user_name",unique = true)
+    @Column(name = "user_name")
     private String userName;
     @Column(name = "user_password")
     private String password;
