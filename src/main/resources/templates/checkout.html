@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - Cafeteria</title>
+<link rel="stylesheet" href="../static/css/stayle.css">
+<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="f" alt="">
+        </a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <ul class="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="customers.html">Customers</a></li>
+        </ul>
+        <div class="header-icon">
+            <i class='bx bx-cart-alt'></i>
+            <i class='bx bx-search-alt-2' id="search-icon"></i>
+        </div>
+    </header>
+
+    <main>
+        <section class="checkout">
+            <div class="container">
+                <h2>Checkout</h2>
+                <div class="checkout-form">
+                    <form action="confirmation.html" method="post">
+                        <div class="billing-details">
+                            <h3>Billing Details</h3>
+                            <label for="fullname">Full Name</label>
+                            <input type="text" id="fullname" name="fullname" required>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                            <label for="address">Address</label>
+                            <input type="text" id="address" name="address" required>
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" required>
+                            <label for="zip">Zip Code</label>
+                            <input type="text" id="zip" name="zip" required>
+                            <label for="country">Country</label>
+                            <input type="text" id="country" name="country" required>
+                        </div>
+                        <div class="payment-details">
+                            <h3>Payment Details</h3>
+                            <label for="cardname">Name on Card</label>
+                            <input type="text" id="cardname" name="cardname" required>
+                            <label for="cardnumber">Card Number</label>
+                            <input type="text" id="cardnumber" name="cardnumber" required>
+                            <label for="expmonth">Expiry Month</label>
+                            <input type="text" id="expmonth" name="expmonth" required>
+                            <label for="expyear">Expiry Year</label>
+                            <input type="text" id="expyear" name="expyear" required>
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" name="cvv" required>
+                        </div>
+                        <div class="order-summary">
+                            <h3>Order Summary</h3>
+                            <!-- Cart items will be dynamically added here by JavaScript -->
+                        </div>
+                        <button type="submit" class="btn">Place Order</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+   
+    <div class="copyright">
+        <p>&#169; carpoolvenom all right reserve by baz team</p>
+    </div>
+</body>
+<script src="../static/Js/main.js"></script>
+
+</html>
